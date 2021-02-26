@@ -7,15 +7,13 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-
+import "@fontsource/ibm-plex-mono/400.css"
+import "@fontsource/ibm-plex-mono/500.css"
 import "./layout.css"
 
 const Layout = ({ children }) => {
   return (
     <>
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
-      </style>
       <main>{children}</main>
       <footer style={{
         marginTop: `2rem`
