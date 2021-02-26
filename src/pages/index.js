@@ -2,20 +2,24 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import ContactList from "../components/contact-list";
+
+import "./index.css"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <SEO title="Adam Christopher Miller | Frontend Software Engineer" />
+    <section>
+      <div className="section-wrapper">
+        <h1>Adam Christopher Miller</h1>
+        <h2>Software Engineer</h2>
+        <p className="word-block">
+          Heyo - My name's Adam Miller and I'm a Principal Software Engineer working at Walmart Labs. I'm focused on crafting great experiences on the web. I like to cook and can swing a hammer.
+        </p>
+        <ContactList />
+      </div>
+    </section>
   </Layout>
 )
 

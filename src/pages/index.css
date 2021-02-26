@@ -1,0 +1,50 @@
+
+section {
+  /* background-color: #39ab3e26; */
+  color: #444;
+  padding: 10px 25px;
+}
+
+h1 {
+  border-bottom: 4px solid white;
+  padding: 10px 25px;
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  padding: 10px 25px;
+}
+
+p {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.section-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 60px 0;
+}
+.fancy {
+  position: relative;
+  display: inline-block;
+}
+
+
+.am-contact-list {
+  font-family: "IBM Plex Mono", monospace;
+  list-style: none;
+  font-size: 14px;
+}
+.am-contact-list svg {
+  width: 14px;
+  height: 14px;
+}
+.am-contact-list a {
+  text-decoration: none;
+  line-height: 14px;
+}
