@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Adam Miller — Engineering Manager, Developer Platforms";
+const description =
+  "Adam Miller is an engineering manager and platform engineer who builds the tools other engineers depend on, most recently on Netflix's JS Platform org.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Adam Miller",
+  jobTitle: "Engineering Manager, Developer Platforms",
+  description,
+  url: "https://adammiller.co/",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Pittsburgh",
+    addressRegion: "PA",
+    addressCountry: "US",
+  },
+  sameAs: ["https://www.linkedin.com/in/adammillerrr"],
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <section class="hero" aria-labelledby="intro-heading">
+    <div class="container">
+      <div class="hero-main">
+        <p class="eyebrow">
+          <span class="status-dot" aria-hidden="true"></span>
+          Pittsburgh, PA · Remote
+        </p>
+        <h1 id="intro-heading">Adam Miller<span class="accent" aria-hidden="true">.</span></h1>
+        <p class="hero-title">Engineering Manager, Developer Platforms</p>
+        <p class="hero-intro">
+          I'm Adam Miller, an engineering manager and platform engineer based in
+          Pittsburgh. For nearly 20 years I've built the tools other engineers
+          depend on. Most recently at Netflix, I led teams in the JS Platform
+          org, which supports 1,000+ engineers and 900+ JavaScript applications,
+          and drove the platform's shift to agentic development. I'm looking for
+          my next role building or leading developer platforms.
+        </p>
+        <div class="hero-actions">
+          <a class="button button--primary" href="/resume">
+            View resume <span aria-hidden="true">→</span>
+          </a>
+          <a class="button button--ghost" href="mailto:acm6603@gmail.com">Email</a>
+          <a
+            class="text-link"
+            href="https://www.linkedin.com/in/adammillerrr"
+            rel="me"
+          >LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="experience-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title" id="experience-heading">Selected experience</h2>
+        <a class="text-link" href="/resume">Full resume <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="index-list">
+        <li class="index-item">
+          <span class="index-company">Netflix</span>
+          <span class="index-role">Engineering Manager, JS Platform</span>
+          <span class="index-date">
+            <time datetime="2026-02">Feb 2026</time> – <time datetime="2026-10">Oct 2026</time>
+          </span>
+        </li>
+        <li class="index-item">
+          <span class="index-company">Netflix</span>
+          <span class="index-role">Senior Software Engineer, JS Platform</span>
+          <span class="index-date">
+            <time datetime="2023-05">May 2023</time> – <time datetime="2026-01">Jan 2026</time>
+          </span>
+        </li>
+        <li class="index-item">
+          <span class="index-company">Netflix</span>
+          <span class="index-role">Senior Software Engineer, Studio Foundations</span>
+          <span class="index-date">
+            <time datetime="2021-07">Jul 2021</time> – <time datetime="2023-04">Apr 2023</time>
+          </span>
+        </li>
+        <li class="index-item">
+          <span class="index-company">Walmart eCommerce</span>
+          <span class="index-role">Principal Software Engineer, SamsClub.com</span>
+          <span class="index-date">
+            <time datetime="2016-02">Feb 2016</time> – <time datetime="2021-07">Jul 2021</time>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact-band" aria-labelledby="contact-heading">
+    <div class="container contact-inner">
+      <div>
+        <h2 id="contact-heading">Get in touch</h2>
+        <p class="contact-copy">
+          I'm looking for my next role building or leading developer platforms.
+        </p>
+      </div>
+      <div class="contact-links">
+        <a class="button button--primary" href="mailto:acm6603@gmail.com">
+          Email <span class="visually-hidden">Adam Miller</span>
+        </a>
+        <a
+          class="button button--ghost"
+          href="https://www.linkedin.com/in/adammillerrr"
+          rel="me"
+        >LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

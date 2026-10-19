@@ -1,0 +1,1107 @@
+/* ---------------------------------------------------------------------------
+   Tokens
+--------------------------------------------------------------------------- */
+:root {
+  --paper: #f5f1e8;
+  --paper-soft: #eee7d9;
+  --surface: #fffdf8;
+  --ink: #181613;
+  --ink-soft: #3d3831;
+  --muted: #675f52;
+  --line: #d9d0bf;
+  --line-strong: #bcb09a;
+  --accent: #993b1d;
+  --accent-hover: #7b2d13;
+  --accent-wash: #f2e1d4;
+  --green: #2c684b;
+  --focus: #1b5c88;
+
+  --font-serif: "Newsreader Variable", "Iowan Old Style", "Palatino Linotype",
+    Palatino, Georgia, serif;
+  --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --container: 1120px;
+  --gutter: clamp(1.25rem, 5vw, 3.5rem);
+  --radius: 1rem;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(58rem 40rem at 92% -18%, rgba(153, 59, 29, 0.07), transparent 65%),
+    radial-gradient(48rem 34rem at -8% 6%, rgba(44, 104, 75, 0.05), transparent 62%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.65;
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--surface);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -5rem;
+  z-index: 100;
+  padding: 0.7rem 1.1rem;
+  border-radius: 0.4rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: top 0.18s var(--ease);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  color: var(--paper);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+main {
+  display: block;
+}
+
+/* ---------------------------------------------------------------------------
+   Header
+--------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 4.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--ink);
+}
+
+.brand-mark {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper-soft);
+  object-fit: cover;
+  object-position: 50% 42%;
+  transition:
+    border-color 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.brand:hover .brand-mark {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-wash);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2.4vw, 1.9rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition:
+    color 0.18s var(--ease),
+    border-color 0.18s var(--ease);
+}
+
+.nav-link:hover {
+  color: var(--ink);
+}
+
+.nav-link[aria-current="page"] {
+  border-bottom-color: var(--accent);
+  color: var(--ink);
+}
+
+.nav-link--cta {
+  padding: 0.46rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.nav-link--cta:hover {
+  border-color: var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons and links
+--------------------------------------------------------------------------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background 0.2s var(--ease),
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.button--primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.button--primary:hover {
+  transform: translateY(-1px);
+  background: var(--accent);
+  color: var(--surface);
+}
+
+.button--ghost {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.button--ghost:hover {
+  border-color: var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.button--small {
+  padding: 0.55rem 0.95rem;
+  font-size: 0.82rem;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    color 0.18s var(--ease),
+    border-color 0.18s var(--ease);
+}
+
+.text-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------------------------
+   Home: hero
+--------------------------------------------------------------------------- */
+.hero {
+  padding-block: clamp(3.5rem, 9vw, 7.5rem) clamp(3rem, 7vw, 5.5rem);
+}
+
+.hero-main {
+  max-width: 48rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 clamp(1.3rem, 3vw, 1.9rem);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 0.44rem;
+  height: 0.44rem;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 4px rgba(44, 104, 75, 0.13);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(3.9rem, 10.5vw, 7.75rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+}
+
+.hero h1 .accent {
+  color: var(--accent);
+}
+
+.error-page h1 {
+  font-size: clamp(3rem, 7vw, 5.25rem);
+  line-height: 0.95;
+}
+
+.hero-title {
+  max-width: 22ch;
+  margin: 1.15rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.hero-intro {
+  max-width: 60ch;
+  margin: clamp(1.6rem, 4vw, 2.4rem) 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.04rem, 1.5vw, 1.16rem);
+  line-height: 1.68;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.3rem;
+  margin-top: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+/* ---------------------------------------------------------------------------
+   Home: sections
+--------------------------------------------------------------------------- */
+.section {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
+  flex-wrap: wrap;
+}
+
+.section-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.section-note {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.index-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+  list-style: none;
+}
+
+.index-item {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.62fr) minmax(0, 1.5fr) auto;
+  gap: 0.4rem 1.5rem;
+  align-items: baseline;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.index-company {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.index-role {
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.index-date {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.contact-band {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.contact-band h2 {
+  max-width: 20ch;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.contact-copy {
+  margin: 0.9rem 0 0;
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+/* ---------------------------------------------------------------------------
+   Footer
+--------------------------------------------------------------------------- */
+.site-footer {
+  padding-block: 2.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links a {
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------------
+   Resume: screen
+--------------------------------------------------------------------------- */
+.resume-page {
+  padding-block: clamp(1.75rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
+}
+
+.resume-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  max-width: 54rem;
+  margin: 0 auto 1rem;
+}
+
+.resume {
+  max-width: 54rem;
+  margin-inline: auto;
+  padding: clamp(1.4rem, 5vw, 3.75rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow:
+    0 1px 0 rgba(24, 22, 19, 0.03),
+    0 28px 60px -42px rgba(24, 22, 19, 0.35);
+}
+
+.resume-header {
+  padding-bottom: 1.6rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.resume h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.7rem, 6vw, 4.1rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.94;
+}
+
+.resume-role {
+  margin: 0.55rem 0 0;
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  font-style: italic;
+  line-height: 1.25;
+}
+
+.resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.resume-contact a {
+  text-decoration-color: var(--line-strong);
+}
+
+.resume-section {
+  margin-top: 2.15rem;
+}
+
+.resume-section > h2,
+.resume-section-head h2 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.resume-section > p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+.resume-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.resume-section-head h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.resume-section-head .date-range {
+  padding-bottom: 0.05rem;
+}
+
+.employer + .employer {
+  margin-top: 1.6rem;
+}
+
+.employer-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.3rem 1.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.35rem;
+}
+
+.employer-head h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.date-range {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.role {
+  margin-top: 0.85rem;
+}
+
+.role + .role {
+  margin-top: 1.3rem;
+  padding-top: 1.3rem;
+  border-top: 1px dashed var(--line);
+}
+
+.role-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.role-head h4 {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+}
+
+.role ul {
+  margin: 0.55rem 0 0;
+  padding-left: 1.05rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+.role li {
+  margin: 0.38rem 0;
+  padding-left: 0.18rem;
+}
+
+.role li::marker {
+  color: var(--accent);
+}
+
+.role ul ul {
+  margin: 0.3rem 0 0.1rem;
+  padding-left: 1.15rem;
+}
+
+.role ul ul li {
+  margin: 0.26rem 0;
+}
+
+.role ul ul li::marker {
+  color: var(--line-strong);
+}
+
+.earlier-role + .earlier-role {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--line);
+}
+
+.earlier-role h3 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  flex-wrap: wrap;
+  margin: 0;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.earlier-role h3 .date-range {
+  font-weight: 400;
+}
+
+.earlier-role p {
+  margin: 0.2rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.skills {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+}
+
+.skills > div {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.skills dt {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.skills dd {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.education h3 {
+  margin: 0;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.education p {
+  margin: 0.15rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive
+--------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .contact-inner {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .contact-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 620px) {
+  .index-item {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.2rem 1rem;
+  }
+
+  .index-role {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .index-date {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .employer-head,
+  .role-head,
+  .earlier-role h3 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .skills > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.1rem;
+  }
+
+  .resume {
+    border-radius: 0.7rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-name {
+    display: none;
+  }
+
+  .nav-list {
+    gap: 0.85rem;
+  }
+
+  .nav-link--cta {
+    padding: 0.42rem 0.7rem;
+  }
+
+  .resume-contact {
+    font-size: 0.84rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Print: clean two-page US Letter resume
+--------------------------------------------------------------------------- */
+@media print {
+  @page {
+    size: Letter;
+    margin: 0.5in 0.62in;
+  }
+
+  :root {
+    --paper: #fff;
+    --surface: #fff;
+    --ink: #000;
+    --ink-soft: #000;
+    --muted: #333;
+    --line: #bbb;
+    --line-strong: #000;
+    --accent: #000;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 9.6pt;
+    line-height: 1.4;
+  }
+
+  body {
+    background-image: none !important;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .resume-toolbar {
+    display: none !important;
+  }
+
+  .container,
+  .resume-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .resume {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .resume-header {
+    padding-bottom: 7pt;
+    border-bottom: 1.5pt solid #000;
+  }
+
+  .resume h1 {
+    font-size: 26pt;
+    letter-spacing: -0.03em;
+  }
+
+  .resume-role {
+    margin-top: 3pt;
+    color: #000;
+    font-size: 11.5pt;
+  }
+
+  .resume-contact {
+    margin-top: 5pt;
+    color: #000;
+    font-size: 8.6pt;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  .resume-section {
+    margin-top: 11pt;
+  }
+
+  .resume-section > h2,
+  .resume-section-head h2 {
+    margin-bottom: 5pt;
+    padding-bottom: 2pt;
+    border-bottom: 0.75pt solid #000;
+    color: #000;
+    font-size: 7.6pt;
+    break-after: avoid;
+  }
+
+  .resume-section > p,
+  .role ul,
+  .skills dd,
+  .earlier-role p,
+  .education p {
+    color: #000;
+    font-size: 8.9pt;
+    line-height: 1.4;
+  }
+
+  .resume-section-head {
+    margin-bottom: 5pt;
+    padding-bottom: 2pt;
+    border-bottom: 0.75pt solid #000;
+    break-after: avoid;
+  }
+
+  .employer + .employer {
+    margin-top: 10pt;
+  }
+
+  .employer-head {
+    padding-bottom: 1pt;
+    break-after: avoid;
+  }
+
+  .employer-head h3 {
+    font-size: 11.5pt;
+  }
+
+  .date-range {
+    color: #000;
+    font-size: 7.4pt;
+  }
+
+  .role {
+    margin-top: 5pt;
+  }
+
+  .role + .role {
+    margin-top: 7pt;
+    padding-top: 7pt;
+    border-top: 0.5pt dashed #999;
+  }
+
+  .role-head {
+    break-after: avoid;
+  }
+
+  .role-head h4 {
+    font-size: 9.2pt;
+  }
+
+  .role ul {
+    margin-top: 3pt;
+    padding-left: 12pt;
+  }
+
+  .role li {
+    margin: 1.4pt 0;
+    break-inside: avoid;
+  }
+
+  .role li:first-child {
+    break-after: avoid;
+  }
+
+  .role ul ul {
+    margin-top: 1pt;
+  }
+
+  .role ul ul li {
+    margin: 0.8pt 0;
+  }
+
+  .earlier-role + .earlier-role {
+    margin-top: 4pt;
+    padding-top: 4pt;
+  }
+
+  .earlier-role h3 {
+    font-size: 9pt;
+    break-after: avoid;
+  }
+
+  .earlier-role p {
+    margin-top: 0.5pt;
+  }
+
+  .skills {
+    gap: 3pt;
+  }
+
+  .skills > div {
+    grid-template-columns: 62pt minmax(0, 1fr);
+    gap: 8pt;
+    break-inside: avoid;
+  }
+
+  .skills dt {
+    color: #000;
+    font-size: 7pt;
+  }
+
+  .education h3 {
+    font-size: 9pt;
+  }
+
+  .education p {
+    margin-top: 0.5pt;
+  }
+
+  .resume-section,
+  .employer,
+  .role {
+    break-inside: auto;
+  }
+
+  .education,
+  .skills {
+    break-inside: avoid;
+  }
+}

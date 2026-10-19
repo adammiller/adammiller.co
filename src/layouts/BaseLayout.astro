@@ -1,0 +1,103 @@
+---
+import "@fontsource-variable/inter";
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/newsreader/wght-italic.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const { title, description, jsonLd } = Astro.props;
+
+const site = Astro.site ?? new URL("https://adammiller.co");
+const canonical = new URL(Astro.url.pathname, site);
+const ogImage = new URL("/og.png", site);
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isHome = path === "/";
+const isResume = path === "/resume";
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Adam Miller" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Adam Miller — Engineering Manager, Developer Platforms" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Adam Miller — Engineering Manager, Developer Platforms" />
+
+    {jsonLd && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Adam Miller, home">
+          <img
+            class="brand-mark"
+            src="/headshot_sq.jpg"
+            alt=""
+            width="64"
+            height="64"
+          />
+          <span class="brand-name">Adam Miller</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="/" aria-current={isHome ? "page" : undefined}>Home</a></li>
+            <li><a class="nav-link" href="/resume" aria-current={isResume ? "page" : undefined}>Resume</a></li>
+            <li>
+              <a
+                class="nav-link nav-link--cta"
+                href="https://www.linkedin.com/in/adammillerrr"
+                rel="me"
+              >LinkedIn <span aria-hidden="true">↗</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© {year} Adam Miller · Pittsburgh, PA</p>
+        <ul class="footer-links">
+          <li><a href="mailto:acm6603@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/adammillerrr" rel="me">LinkedIn</a></li>
+          <li><a href="/resume">Resume</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
