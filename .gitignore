@@ -2,6 +2,9 @@
 dist/
 .astro/
 
+# legacy Gatsby build cache (removed)
+.cache/
+
 # generated types
 .env.d.ts
 
