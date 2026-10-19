@@ -1,0 +1,310 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Resume — Adam Miller, Engineering Manager, Developer Platforms";
+const description =
+  "Resume for Adam Miller, Engineering Manager, Developer Platforms: nearly 20 years building the tools other engineers depend on, most recently at Netflix.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Adam Miller",
+  jobTitle: "Engineering Manager, Developer Platforms",
+  url: "https://adammiller.co/",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Pittsburgh",
+    addressRegion: "PA",
+    addressCountry: "US",
+  },
+  sameAs: ["https://www.linkedin.com/in/adammillerrr"],
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <div class="resume-page">
+    <div class="container">
+      <div class="resume-toolbar">
+        <a class="button button--ghost button--small" href="/Adam-Miller-Resume.pdf" download>
+          Download PDF <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <article class="resume">
+        <header class="resume-header">
+          <h1>Adam Miller</h1>
+          <p class="resume-role">Engineering Manager, Developer Platforms</p>
+          <p class="resume-contact">
+            <span>Pittsburgh, PA (remote)</span>
+            <span aria-hidden="true">·</span>
+            <a href="mailto:acm6603@gmail.com">Email</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://www.linkedin.com/in/adammillerrr" rel="me">LinkedIn</a>
+          </p>
+        </header>
+
+        <section class="resume-section" aria-labelledby="summary-heading">
+          <h2 id="summary-heading">Professional Summary</h2>
+          <p>
+            Engineering manager with nearly 20 years of building the tools other
+            engineers depend on. Led two teams and co-led strategy and investment
+            for Netflix's JS Platform org, which supports 1,000+ engineers and 900+
+            JavaScript applications. Drove the platform's shift to agentic
+            development, shipping agent-ready tooling to every engineer. Grew
+            engineers through promotion prep and an intern-to-full-time conversion,
+            and led a team through a reorg. As a senior engineer, built the codemod
+            architecture that powers migrations across the entire application fleet
+            and ran a customer program that earned the highest satisfaction scores
+            of any Netflix platform team. Previously technical lead for a
+            50-engineer org at Walmart.
+          </p>
+        </section>
+
+        <section class="resume-section" aria-labelledby="experience-heading">
+          <h2 id="experience-heading">Professional Experience</h2>
+
+          <div class="employer">
+            <header class="employer-head">
+              <h3>Netflix</h3>
+              <p class="date-range">
+                <time datetime="2021-07">July 2021</time> – <time datetime="2026-10">October 2026</time>
+              </p>
+            </header>
+
+            <article class="role" aria-labelledby="netflix-em-heading">
+              <header class="role-head">
+                <h4 id="netflix-em-heading">Engineering Manager, JS Platform</h4>
+                <p class="date-range">
+                  <time datetime="2026-02">February 2026</time> – <time datetime="2026-10">October 2026</time>
+                </p>
+              </header>
+              <ul>
+                <li>
+                  Managed two teams in succession within the JS Platform org, which
+                  supports 1,000+ engineers and 900 projects (~40,000 PRs merged per
+                  week across the fleet). Led UI Developer Experience (6 engineers)
+                  and, from August, JavaScript Application Platform (5 engineers),
+                  owner of Jetpack, Netflix's managed platform for developing and
+                  deploying JavaScript applications, and NodeQuark, its managed
+                  Node.js server runtime. Each team was spread across three time
+                  zones. Took on the second team while still managing the first.
+                </li>
+                <li>
+                  Led the platform's shift to agentic development, with tooling
+                  available to all 1,000+ engineers:
+                  <ul>
+                    <li>
+                      Headless remote dev servers that run in parallel so multiple
+                      agents can work in separate git worktrees.
+                    </li>
+                    <li>
+                      Every platform CLI refactored so embedded prompts became flags
+                      with help text, letting agents use them without guidance.
+                    </li>
+                    <li>
+                      llm-context embedded in 100% of platform-provided libraries,
+                      kept current by an agent triggered from CI as the underlying
+                      libraries change.
+                    </li>
+                    <li>
+                      Equipped Netflix's sandboxed agentic runtime with this tooling,
+                      enabling it to deliver verified code changes to JavaScript
+                      applications.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Grew and developed engineers: converted an intern to full-time;
+                  within weeks they were building GraphQL migration tooling to retire
+                  non-paved-path library usage across a ~150-repo target group
+                  (rollout continuing through Q4). Prepared two engineers for the
+                  January 2027 promotion cycle.
+                </li>
+                <li>
+                  Led a team through a reorg while protecting people's growth plans:
+                  partnered with the director and fellow EMs, ran team communications
+                  and leader Q&amp;A sessions, and coordinated reporting-line
+                  transitions so in-flight career growth and performance
+                  considerations carried over.
+                </li>
+                <li>
+                  Set long-term direction with the Jetpack Northstar foundation
+                  (guiding principles, strategy bets), aligning three platform teams
+                  and partners in Delivery, Source Control and Tech Catalog.
+                </li>
+                <li>
+                  Created and led the Generative UI Working Group, evaluating MCP
+                  Apps, WebMCP and CopilotKit for agent-driven internal UIs.
+                </li>
+                <li>
+                  Shared on-call for Jetpack and NodeQuark, responding to production
+                  incidents on the platforms that build, deploy and run Netflix's
+                  JavaScript applications.
+                </li>
+                <li>
+                  Onboarded and mentored two engineering teams in Warsaw through
+                  technical deep dives and recurring 1:1s, remotely and in person.
+                </li>
+              </ul>
+            </article>
+
+            <article class="role" aria-labelledby="netflix-senior-heading">
+              <header class="role-head">
+                <h4 id="netflix-senior-heading">Senior Software Engineer, JS Platform</h4>
+                <p class="date-range">
+                  <time datetime="2023-05">May 2023</time> – <time datetime="2026-01">January 2026</time>
+                </p>
+              </header>
+              <ul>
+                <li>
+                  Built an automated dependency-upgrade CLI with codemods that
+                  migrated the JS application fleet across breaking changes in design
+                  system and browser runtime libraries, cutting down the time
+                  required for large applications to migrate from weeks to days and
+                  saving thousands of engineering hours.
+                </li>
+                <li>
+                  Designed and shipped Netflix's paved-path tooling for JavaScript
+                  library versioning and publishing, closing a years-long gap in the
+                  platform's offerings.
+                </li>
+                <li>
+                  Created and led a monthly customer program with product engineering
+                  teams, turning their feedback into platform roadmap features and
+                  earning the highest customer satisfaction scores of any platform
+                  team at Netflix.
+                </li>
+                <li>
+                  Built GraphQL introspection and codegen tooling that standardized
+                  data fetching for JS clients, with end-to-end type-safe requests
+                  across Netflix's federated graph, one of the industry's largest.
+                </li>
+                <li>
+                  Core maintainer of Hawkins Professional, Netflix's internal design
+                  system.
+                </li>
+              </ul>
+            </article>
+
+            <article class="role" aria-labelledby="netflix-studio-heading">
+              <header class="role-head">
+                <h4 id="netflix-studio-heading">Senior Software Engineer, Studio Foundations</h4>
+                <p class="date-range">
+                  <time datetime="2021-07">July 2021</time> – <time datetime="2023-04">April 2023</time>
+                </p>
+              </header>
+              <ul>
+                <li>
+                  Built data-quality and connectivity tools for Studio production
+                  workflows, including embeddable UI components for data entry and
+                  validation.
+                </li>
+                <li>
+                  Created a centralized data-quality application that replaced
+                  manual, record-by-record cleanup and made Data Admins an order of
+                  magnitude more efficient at deduplicating critical records in
+                  Netflix's talent, vendor and production data sets.
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="employer">
+            <header class="employer-head">
+              <h3>Walmart eCommerce</h3>
+              <p class="date-range">
+                <time datetime="2016-02">February 2016</time> – <time datetime="2021-07">July 2021</time>
+              </p>
+            </header>
+
+            <article class="role" aria-labelledby="walmart-heading">
+              <header class="role-head">
+                <h4 id="walmart-heading">Principal Software Engineer, SamsClub.com</h4>
+              </header>
+              <ul>
+                <li>
+                  Technical lead for a 50-engineer org, owning code quality,
+                  documentation and developer productivity.
+                </li>
+                <li>
+                  Designed the UI architecture for SamsClub.com's server-rendered
+                  React app, which drives millions of dollars in daily revenue.
+                </li>
+                <li>
+                  Drove test coverage across the SamsClub.com React codebase from
+                  ~13% to 92%: added coverage reporting and thresholds to every repo
+                  and established a team-wide practice of requiring tests for new
+                  functionality, which other engineers extended by retrofitting unit
+                  tests for key existing code.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="resume-section" aria-labelledby="earlier-heading">
+          <div class="resume-section-head">
+            <h2 id="earlier-heading">Earlier Experience</h2>
+            <p class="date-range">
+              <time datetime="2007">2007</time> – <time datetime="2016">2016</time>
+            </p>
+          </div>
+
+          <article class="earlier-role">
+            <h3>
+              Saturday Morning Projects, Founder <span class="date-range">(<time datetime="2009">2009</time>–<time datetime="2016">2016</time>)</span>
+            </h3>
+            <p>
+              Consulting, full-stack builds and deployment for startups, nonprofits
+              and agencies, alongside the roles around it.
+            </p>
+          </article>
+
+          <article class="earlier-role">
+            <h3>
+              The Barbarian Group, Senior Design Technologist and Developer <span class="date-range">(<time datetime="2007">2007</time>–<time datetime="2013">2013</time>)</span>
+            </h3>
+            <p>Led builds for GE, Mozilla and Red Bull.</p>
+          </article>
+
+          <article class="earlier-role">
+            <h3>
+              Wikimedia Foundation, UI Software Engineer <span class="date-range">(<time datetime="2009">2009</time>–<time datetime="2010">2010</time>)</span>
+            </h3>
+            <p>Usability Initiative features still live on Wikipedia.</p>
+          </article>
+        </section>
+
+        <section class="resume-section" aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills</h2>
+          <dl class="skills">
+            <div>
+              <dt>Platform</dt>
+              <dd>
+                Turborepo, CI/CD (Jenkins, GitHub Actions, Spinnaker), dependency
+                management, CLI/TUI tooling, codemods (TS, CSS, GraphQL), design
+                systems, GraphQL federation, on-call and incident response
+              </dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>TypeScript, React, Node.js, Go</dd>
+            </div>
+            <div>
+              <dt>AI tooling</dt>
+              <dd>MCP, agent-native developer workflows, agent plugins</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="resume-section education" aria-labelledby="education-heading">
+          <h2 id="education-heading">Education</h2>
+          <article>
+            <h3>Bachelor of Science, New Media</h3>
+            <p>Rochester Institute of Technology</p>
+          </article>
+        </section>
+      </article>
+    </div>
+  </div>
+</BaseLayout>
