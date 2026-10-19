@@ -317,11 +317,8 @@ main {
   padding-block: clamp(3.5rem, 9vw, 7.5rem) clamp(3rem, 7vw, 5.5rem);
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(16rem, 0.7fr);
-  gap: clamp(2.5rem, 7vw, 6rem);
-  align-items: start;
+.hero-main {
+  max-width: 48rem;
 }
 
 .eyebrow {
@@ -387,57 +384,6 @@ main {
   align-items: center;
   gap: 0.75rem 1.3rem;
   margin-top: clamp(1.8rem, 4vw, 2.6rem);
-}
-
-.hero-aside {
-  padding: clamp(1.35rem, 3vw, 1.9rem);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface) 62%, transparent);
-}
-
-.aside-label {
-  margin: 0 0 1.1rem;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.stat-list {
-  display: grid;
-  gap: 0.95rem;
-  margin: 0;
-}
-
-.stat-list > div {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-bottom: 0.95rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.stat-list > div:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
-}
-
-.stat-list dt {
-  color: var(--muted);
-  font-size: 0.8rem;
-  line-height: 1.35;
-}
-
-.stat-list dd {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  white-space: nowrap;
 }
 
 /* ---------------------------------------------------------------------------
@@ -863,15 +809,6 @@ main {
    Responsive
 --------------------------------------------------------------------------- */
 @media (max-width: 860px) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem;
-  }
-
-  .hero-aside {
-    max-width: 27rem;
-  }
-
   .contact-inner {
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
