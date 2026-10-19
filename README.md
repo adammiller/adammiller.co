@@ -38,6 +38,7 @@ src/
   styles/global.css          design tokens, components, responsive + print styles
 public/
   favicon.svg
+  headshot.jpg               header avatar
   og.png                     Open Graph / Twitter card image
 ```
 
