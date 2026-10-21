@@ -17,16 +17,12 @@ Personal homepage and resume for Adam Miller, built with [Astro](https://astro.b
 | `npm run preview` | Preview the production build locally        |
 | `npm run check`   | Run Astro's type and content checks         |
 
-## Adding the resume PDF
+## Resume PDF
 
-The "Download PDF" link points to `/Adam-Miller-Resume.pdf`. Drop the file here:
-
-```text
-public/Adam-Miller-Resume.pdf
-```
-
-Astro copies `public/` to the site root at build time, so the link will resolve
-at `https://adammiller.co/Adam-Miller-Resume.pdf`.
+The "Download PDF" link points to `/adam-miller-resume.pdf`, served from
+`public/adam-miller-resume.pdf`. Keep the filename lowercase — the link and the
+deployed filesystem are both case-sensitive, so `Adam-Miller-Resume.pdf` would
+404 in production even though it resolves on a Mac's default disk.
 
 ## Structure
 
