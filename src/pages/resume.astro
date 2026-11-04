@@ -1,15 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Resume — Adam Miller, Senior Staff Software Engineer";
+const title = "Resume — Adam Miller, Staff Software Engineer";
 const description =
-  "Resume for Adam Miller, Senior Staff Software Engineer: nearly 20 years building frontend platforms, developer tooling and AI-native developer experiences, most recently at Netflix.";
+  "Resume for Adam Miller, Staff Software Engineer: nearly 20 years building web products and the platforms other teams use to ship them, most recently at Netflix.";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Adam Miller",
-  jobTitle: "Senior Staff Software Engineer",
+  jobTitle: "Staff Software Engineer",
   url: "https://adammiller.co/",
   address: {
     "@type": "PostalAddress",
@@ -34,8 +34,7 @@ const jsonLd = {
         <header class="resume-header">
           <h1>Adam Miller</h1>
           <p class="resume-role">
-            Senior Staff Software Engineer · Frontend Platform, UI Quality &amp;
-            AI-Native UX
+            Staff Software Engineer, Product &amp; Growth Engineering
           </p>
           <p class="resume-contact">
             <span>Pittsburgh, PA (remote)</span>
@@ -51,18 +50,18 @@ const jsonLd = {
         <section class="resume-section" aria-labelledby="summary-heading">
           <h2 id="summary-heading">Professional Summary</h2>
           <p>
-            Frontend and platform engineer with nearly 20 years of building the
-            foundations that large engineering orgs ship user-facing products on. At
-            Netflix I worked across the JS Platform org (1,000+ engineers, 900+
-            applications): I built the codemod tooling that migrates the entire
-            application fleet across breaking changes, co-maintained the Hawkins
-            design system, and set long-term direction for our app platform through
-            Jetpack Northstar, aligning three platform teams and their partners.
-            Before that I was principal engineer and technical lead for a 50-engineer
-            org at Walmart, where I designed SamsClub.com's server-rendered React
-            architecture and raised test coverage from ~13% to 92%. Most recently I
-            led the platform's shift to agentic development and created a Generative
-            UI Working Group exploring agent-driven interfaces.
+            Product-minded full-stack engineer with nearly 20 years of building web
+            products and the platforms that other teams use to ship them. At Walmart
+            I was principal engineer and technical lead for a 50-engineer org, where I
+            designed the server-rendered React architecture behind SamsClub.com,
+            which drives millions of dollars in daily revenue. At Netflix I built a
+            greenfield data-quality product that made Data Admins an order of
+            magnitude more efficient, ran a customer program that earned the highest
+            satisfaction scores of any Netflix platform team, and built tooling every
+            JavaScript team at Netflix relies on. Most recently I led teams in the JS
+            Platform org, serving 1,000+ engineers, and drove the org's shift to
+            agentic development. I like ambiguous problems with a clear business
+            number at the end of them.
           </p>
         </section>
 
@@ -86,12 +85,9 @@ const jsonLd = {
               </header>
               <ul>
                 <li>
-                  Managed two teams in succession within the JS Platform org (1,000+
-                  engineers, 900+ applications, ~40,000 PRs merged per week across the
-                  fleet): UI Developer Experience (6 engineers, Feb-Aug), then
-                  JavaScript Application Platform (5 engineers, Aug-Oct), owner of
-                  Jetpack, Netflix's managed platform for developing and deploying
-                  JavaScript applications.
+                  Managed two teams in succession (6, then 5 engineers) in the JS
+                  Platform org serving 1,000+ engineers, 900+ applications, and
+                  supporting ~40,000 merged PRs per week.
                 </li>
                 <li>
                   Set long-term direction with the Jetpack Northstar foundation
@@ -99,40 +95,20 @@ const jsonLd = {
                   and partners in Delivery, Source Control and Tech Catalog.
                 </li>
                 <li>
-                  Created and led the Generative UI Working Group (50+ attendees per
-                  meeting across engineering, design and product), evaluating MCP
-                  Apps, WebMCP and CopilotKit for agent-driven internal and
-                  operational UIs.
+                  Led the platform's shift to agentic development, shipping tooling
+                  to all 1,000+ engineers: parallel headless remote dev servers for
+                  agents working in separate git worktrees, agent-friendly CLIs, and
+                  llm-context in 100% of platform libraries, kept current by a
+                  CI-triggered agent.
                 </li>
                 <li>
-                  Led the platform's shift to agentic development, with tooling
-                  available to all 1,000+ engineers:
-                  <ul>
-                    <li>
-                      Headless remote dev servers that run in parallel so multiple
-                      agents can work in separate git worktrees.
-                    </li>
-                    <li>
-                      Every platform CLI refactored so embedded prompts became flags
-                      with help text, letting agents use them without guidance.
-                    </li>
-                    <li>
-                      llm-context embedded in 100% of platform-provided libraries,
-                      kept current by an agent triggered from CI as the underlying
-                      libraries change.
-                    </li>
-                    <li>
-                      Equipped Netflix's sandboxed agentic runtime with this tooling,
-                      enabling it to deliver verified code changes to JavaScript
-                      applications.
-                    </li>
-                  </ul>
+                  Created and led the Generative UI Working Group, evaluating MCP
+                  Apps, WebMCP and CopilotKit for agent-driven interfaces.
                 </li>
                 <li>
-                  Grew engineers (an intern converted to full-time who was soon
-                  building GraphQL migration tooling across ~150 repos; two engineers
-                  prepared for promotion), led a team through a reorg, and mentored
-                  two engineering teams in Warsaw.
+                  Grew engineers, including converting an intern to full-time and
+                  preparing two engineers for promotion. Led teams through a reorg
+                  with no disruption to in-flight projects or career growth goals.
                 </li>
               </ul>
             </article>
@@ -146,36 +122,30 @@ const jsonLd = {
               </header>
               <ul>
                 <li>
+                  Created and led a monthly customer program with product engineering
+                  teams, turning their feedback into roadmap features and earning the
+                  highest customer satisfaction scores of any platform team at
+                  Netflix.
+                </li>
+                <li>
                   Built an automated dependency-upgrade CLI with codemods that
                   migrated the JS application fleet across breaking changes in design
-                  system and browser runtime libraries, cutting down the time
-                  required for large applications to migrate from weeks to days and
-                  saving thousands of engineering hours.
+                  system and browser runtime libraries, cutting large-app migrations
+                  from weeks to days and saving thousands of engineering hours.
+                </li>
+                <li>
+                  Designed and shipped Netflix's paved path for JavaScript library
+                  versioning and publishing from scratch, closing a years-long gap in
+                  the platform.
+                </li>
+                <li>
+                  Built GraphQL introspection and codegen tooling with end-to-end
+                  type-safe requests across Netflix's federated graph, standardizing
+                  data fetching for JS clients.
                 </li>
                 <li>
                   Core maintainer of Hawkins Professional, Netflix's internal design
                   system.
-                </li>
-                <li>
-                  Created and led a monthly customer program with product engineering
-                  teams, turning their feedback into platform roadmap features and
-                  earning the highest customer satisfaction scores of any platform
-                  team at Netflix.
-                </li>
-                <li>
-                  Designed and shipped Netflix's paved-path tooling for JavaScript
-                  library versioning and publishing, closing a years-long gap in the
-                  platform's offerings.
-                </li>
-                <li>
-                  Built GraphQL introspection and codegen tooling that standardized
-                  data fetching for JS clients, with end-to-end type-safe requests
-                  across Netflix's federated graph, one of the industry's largest.
-                </li>
-                <li>
-                  Shared on-call for Jetpack and NodeQuark, responding to production
-                  incidents on the platforms that build, deploy and run Netflix's
-                  JavaScript applications.
                 </li>
               </ul>
             </article>
@@ -189,26 +159,20 @@ const jsonLd = {
               </header>
               <ul>
                 <li>
-                  Built Data Mechanic, Studio's data-quality hub: replaced a
-                  spreadsheet-based process that had Data Admins jumping between
-                  three apps with one deduplication workflow powered by algorithmic
-                  matching and a graph database.
+                  Built Data Mechanic, a greenfield data-quality product that
+                  replaced a spreadsheet process spread across three apps with one
+                  guided deduplication workflow, making Data Admins an order of
+                  magnitude more efficient across Netflix's talent, vendor and
+                  production data.
                 </li>
                 <li>
-                  Designed and built its core interface, a novel UI that lays graph
-                  relationships out in a 2D table with rich side-by-side record
-                  comparison, so Data Admins could see how possible duplicates
-                  connect and act on them in one place.
+                  Designed a novel interface that shows how similar records connect
+                  in a graph database, so users could see why records matched and
+                  resolve duplicates in one place.
                 </li>
                 <li>
-                  Overhauled how Studio Data Admins worked, making them an order of
-                  magnitude more productive as measured by possible duplicate records
-                  resolved across Netflix's talent, vendor and production data.
-                </li>
-                <li>
-                  Partnered with Data Admins, design and product to shape the
-                  workflow, plus embeddable data-entry and validation components used
-                  across Studio production tools.
+                  Built embeddable data-entry and validation components used across
+                  Studio production tools.
                 </li>
               </ul>
             </article>
@@ -232,19 +196,18 @@ const jsonLd = {
                   React app, which drives millions of dollars in daily revenue.
                 </li>
                 <li>
-                  Drove test coverage across the SamsClub.com React codebase from
-                  ~13% to 92%: added coverage reporting and thresholds to every repo
-                  and established a team-wide practice of requiring tests for new
-                  functionality, which other engineers extended by retrofitting unit
-                  tests for key existing code.
+                  Revamped cart, search, product details, and add-to-cart buttons,
+                  validating each change with A/B tests and gradual rollouts, lifting
+                  conversion 1–3% per change.
                 </li>
                 <li>
                   Technical lead for a 50-engineer org, owning code quality,
                   documentation and developer productivity.
                 </li>
                 <li>
-                  Ensured SamsClub.com's session replay and logging tools did not
-                  capture customers' personal data.
+                  Drove test coverage across the SamsClub.com React codebase from
+                  ~13% to 92% with coverage thresholds in every repo and a team-wide
+                  practice of testing new functionality.
                 </li>
               </ul>
             </article>
@@ -264,8 +227,8 @@ const jsonLd = {
               Saturday Morning Projects, Founder <span class="date-range">(<time datetime="2009">2009</time>–<time datetime="2016">2016</time>)</span>
             </h3>
             <p>
-              Consulting, full-stack builds and deployment for startups, nonprofits
-              and agencies, alongside the roles around it.
+              Consulting, full-stack product builds and launches for startups,
+              nonprofits and agencies.
             </p>
           </article>
 
@@ -289,34 +252,29 @@ const jsonLd = {
           <dl class="skills">
             <div>
               <dt>Stack</dt>
-              <dd>TypeScript, React, Node.js</dd>
+              <dd>TypeScript, React (SSR), Node.js, GraphQL</dd>
+            </div>
+            <div>
+              <dt>Product</dt>
+              <dd>
+                customer research and feedback programs, onboarding and workflow
+                design, design systems, A/B testing
+              </dd>
             </div>
             <div>
               <dt>Platform</dt>
               <dd>
-                web performance, React SSR, Turborepo, CI/CD (Jenkins, GitHub
-                Actions, Spinnaker), dependency management, CLI/TUI tooling,
-                codemods (TS, CSS, GraphQL), design systems, GraphQL federation,
-                on-call and incident response
+                Turborepo, CI/CD (GitHub Actions, Jenkins, Spinnaker), codemods, CLI
+                tooling, GraphQL federation, on-call
               </dd>
             </div>
             <div>
-              <dt>Backend &amp; data</dt>
-              <dd>
-                Postgres, Elasticsearch, graph databases, KVDAL (Netflix's key-value
-                data abstraction), GraphQL API design
-              </dd>
-            </div>
-            <div>
-              <dt>AI tooling</dt>
-              <dd>MCP, agent-native developer workflows, agent plugins</dd>
+              <dt>AI</dt>
+              <dd>agent-native workflows, MCP, AI-assisted development in daily work</dd>
             </div>
             <div>
               <dt>Leadership</dt>
-              <dd>
-                technical strategy, cross-functional alignment, customer programs,
-                mentoring, hiring
-              </dd>
+              <dd>technical strategy, cross-team alignment, mentoring, hiring</dd>
             </div>
           </dl>
         </section>
