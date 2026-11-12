@@ -16,7 +16,7 @@ export const SITE = {
   /** Home page <title>. */
   homeTitle: "Adam Miller — Staff Software Engineer, Full-Stack & Platform",
   homeDescription:
-    "Adam Miller is a staff-level software engineer in Pittsburgh who builds the platforms other engineers build on: CLIs, codemods, CI/CD, services and agent tooling for 1,000+ engineers at Netflix.",
+    "Adam Miller is a staff-level software engineer in Pittsburgh who builds the platforms other engineers rely on: CLIs, codemods, CI/CD, services and agent tooling for 1,000+ engineers at Netflix.",
 
   /** Resume page <title> and description. */
   resumeTitle: "Resume — Adam Miller, Staff Software Engineer",
@@ -25,7 +25,7 @@ export const SITE = {
 
   /** Home page intro paragraph. */
   intro:
-    "I build the platforms other engineers build on. For nearly 20 years I've worked across the stack, from data models and Node.js services to CLIs, CI/CD and the web front end. Most recently at Netflix's JS Platform org, which serves 1,000+ engineers and 900+ JavaScript applications, I built the codemod tooling that moves the whole fleet across breaking changes, scoped a CI/CD overhaul for the busiest monorepo, and led the platform's shift to agentic development. I'm looking for a Staff or Principal engineering role where I can make the engineers around me faster — platform, developer productivity, AI tooling or product engineering.",
+    "I build the platforms other engineers rely on. For nearly 20 years I've worked across the stack, from data models and Node.js services to CLIs, CI/CD and the web front end. Most recently at Netflix's JS Platform org, which serves 1,000+ engineers and 900+ JavaScript applications, I built the codemod tooling that moves the whole fleet across breaking changes, scoped a CI/CD overhaul for the busiest monorepo, and led the platform's shift to agentic development. I'm looking for a Staff or Principal engineering role where I can make the engineers around me faster — platform, developer productivity, AI tooling or product engineering.",
 
   /** "Get in touch" closer on the home page. */
   closer:
