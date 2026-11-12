@@ -7,14 +7,14 @@
 export const SITE = {
   url: "https://adammiller.co",
   name: "Adam Miller",
-  headline: "Staff Software Engineer, Developer Platforms",
+  headline: "Staff Software Engineer",
   location: "Pittsburgh, PA",
   locationLine: "Pittsburgh, PA · Remote",
   email: "acm6603@gmail.com",
   linkedin: "https://www.linkedin.com/in/adammillerrr",
 
   /** Home page <title>. */
-  homeTitle: "Adam Miller — Staff Software Engineer, Developer Platforms",
+  homeTitle: "Adam Miller — Staff Software Engineer",
   homeDescription:
     "Adam Miller is a staff-level software engineer in Pittsburgh who builds the platforms other engineers build on: CLIs, codemods, CI/CD, services and agent tooling for 1,000+ engineers at Netflix.",
 
