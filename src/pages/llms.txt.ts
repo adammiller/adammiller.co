@@ -3,7 +3,7 @@
  * Generated from the same data files the pages render, so it can't drift.
  */
 import type { APIRoute } from "astro";
-import { SITE, mailto } from "../data/site";
+import { SITE } from "../data/site";
 import selectedWork from "../data/selected-work.json";
 
 export const GET: APIRoute = () => {
@@ -22,7 +22,7 @@ export const GET: APIRoute = () => {
     `- [Resume](${SITE.url}/resume)`,
     `- [Resume PDF](${SITE.url}/adam-miller-resume.pdf)`,
     `- [LinkedIn](${SITE.linkedin})`,
-    `- [Email](${mailto.replace("mailto:", "")})`,
+    `- Email: ${SITE.email}`,
     "",
   ];
 
