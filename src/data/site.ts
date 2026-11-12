@@ -29,7 +29,7 @@ export const SITE = {
 
   /** "Get in touch" closer on the home page. */
   closer:
-    "I'm looking for a Staff or Principal engineering role where I can make the engineers around me faster — platform, developer productivity, AI tooling or product engineering. Remote from Pittsburgh, or in a Pittsburgh office.",
+    "I'm looking for a Staff or Principal engineering role where I can make the engineers around me faster — platform, developer productivity, AI tooling or product engineering.",
 
   /** JSON-LD `knowsAbout`. */
   knowsAbout: [
