@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Fleet-wide migrations",
+    "tag": "weeks → days",
+    "body": "An automated dependency-upgrade CLI with deterministic codemods (TypeScript, CSS, GraphQL) that moves Netflix's JavaScript fleet across breaking changes in the design system, runtime libraries and schema deprecations. It saved thousands of engineering hours."
+  },
+  {
+    "title": "CI/CD for the busiest monorepo",
+    "tag": "~1,300 PRs/month",
+    "body": "Championed and scoped an overhaul targeting a more than 50% cut in build cost and volume through package restructuring, work-avoidance patterns and a remote module cache. Engineers were implementing it when I left."
+  },
+  {
+    "title": "Data Mechanic",
+    "tag": "10× Data Admin efficiency",
+    "body": "A greenfield full-stack data-quality application using algorithmic record matching and a graph database. Its interface shows how similar records connect, so admins could see why records matched and resolve duplicates in one place."
+  },
+  {
+    "title": "Agent-native platform",
+    "tag": "1,000+ engineers",
+    "body": "Led the JS Platform's shift to agentic development, with my teams shipping headless remote dev servers for parallel agents, CLIs whose prompts became flags agents can run unattended, and llm-context in 100% of platform libraries, kept current by a CI-triggered agent."
+  }
+]

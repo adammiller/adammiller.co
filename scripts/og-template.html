@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>og</title>
+    <style>
+      @font-face {
+        font-family: "Newsreader";
+        src: url("/node_modules/@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2") format("woff2");
+        font-weight: 200 800;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Newsreader";
+        src: url("/node_modules/@fontsource-variable/newsreader/files/newsreader-latin-wght-italic.woff2") format("woff2");
+        font-weight: 200 800;
+        font-style: italic;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Inter";
+        src: url("/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: block;
+      }
+
+      :root {
+        --paper: #f5f1e8;
+        --ink: #181613;
+        --ink-soft: #3d3831;
+        --muted: #675f52;
+        --line: #d9d0bf;
+        --accent: #993b1d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 62px 72px 56px;
+        background-color: var(--paper);
+        background-image:
+          radial-gradient(58rem 40rem at 92% -18%, rgba(153, 59, 29, 0.07), transparent 65%),
+          radial-gradient(48rem 34rem at -8% 6%, rgba(44, 104, 75, 0.05), transparent 62%);
+        color: var(--ink);
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        border: 1.5px solid var(--ink);
+        border-radius: 50%;
+        font-family: "Newsreader", serif;
+        font-style: italic;
+        font-size: 20px;
+        letter-spacing: -0.01em;
+        color: var(--accent);
+      }
+
+      .domain {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 13px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .name {
+        margin: 0;
+        font-family: "Newsreader", serif;
+        font-size: 132px;
+        font-weight: 400;
+        letter-spacing: -0.045em;
+        line-height: 0.92;
+      }
+
+      .name .dot {
+        color: var(--accent);
+      }
+
+      .headline {
+        margin: 24px 0 0;
+        font-family: "Newsreader", serif;
+        font-style: italic;
+        font-size: 42px;
+        font-weight: 400;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        color: var(--ink-soft);
+      }
+
+      .bottom {
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 19px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <span class="mark">AM</span>
+      <span class="domain">adammiller.co</span>
+    </div>
+
+    <div>
+      <h1 class="name">Adam Miller<span class="dot">.</span></h1>
+      <p class="headline">Staff Software Engineer, Developer Platforms</p>
+    </div>
+
+    <div class="bottom">
+      <span>Pittsburgh, PA · Remote</span>
+      <span>Developer platforms · JS Platform at Netflix</span>
+    </div>
+  </body>
+</html>

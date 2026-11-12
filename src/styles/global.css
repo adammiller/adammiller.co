@@ -360,7 +360,7 @@ main {
 }
 
 .hero-title {
-  max-width: 22ch;
+  max-width: none;
   margin: 1.15rem 0 0;
   color: var(--ink-soft);
   font-family: var(--font-serif);
@@ -457,6 +457,74 @@ main {
   letter-spacing: 0.02em;
   line-height: 1.5;
   white-space: nowrap;
+}
+
+.index-note {
+  grid-column: 2 / -1;
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ---------------------------------------------------------------------------
+   Home: selected work cards
+--------------------------------------------------------------------------- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.4rem 0.9rem;
+  padding: clamp(1.15rem, 2.4vw, 1.6rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 1px 0 rgba(24, 22, 19, 0.03);
+  transition: border-color 0.2s var(--ease);
+}
+
+.work-card:hover {
+  border-color: var(--line-strong);
+}
+
+.work-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.work-tag {
+  justify-self: end;
+  margin: 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--accent-wash);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.work-body {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.93rem;
+  line-height: 1.6;
 }
 
 .contact-band {
@@ -704,6 +772,13 @@ main {
   line-height: 1.4;
 }
 
+.role-intro {
+  margin: 0.45rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
 .role ul {
   margin: 0.55rem 0 0;
   padding-left: 1.05rem;
@@ -771,7 +846,7 @@ main {
 
 .skills > div {
   display: grid;
-  grid-template-columns: 7.5rem minmax(0, 1fr);
+  grid-template-columns: 10rem minmax(0, 1fr);
   gap: 1rem;
   align-items: baseline;
 }
@@ -833,6 +908,15 @@ main {
   .index-date {
     grid-column: 2;
     grid-row: 1;
+  }
+
+  .index-note {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .work-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .employer-head,
@@ -983,6 +1067,7 @@ main {
   }
 
   .resume-section > p,
+  .role-intro,
   .role ul,
   .skills dd,
   .earlier-role p,
@@ -990,6 +1075,10 @@ main {
     color: #000;
     font-size: 8.9pt;
     line-height: 1.4;
+  }
+
+  .role-intro {
+    margin-top: 3pt;
   }
 
   .resume-section-head {
@@ -1076,7 +1165,7 @@ main {
   }
 
   .skills > div {
-    grid-template-columns: 62pt minmax(0, 1fr);
+    grid-template-columns: 100pt minmax(0, 1fr);
     gap: 8pt;
     break-inside: avoid;
   }
