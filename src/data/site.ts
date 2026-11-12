@@ -7,14 +7,14 @@
 export const SITE = {
   url: "https://adammiller.co",
   name: "Adam Miller",
-  headline: "Staff Software Engineer",
+  headline: "Staff Software Engineer, Full-Stack & Platform",
   location: "Pittsburgh, PA",
   locationLine: "Pittsburgh, PA · Remote",
   email: "acm6603@gmail.com",
   linkedin: "https://www.linkedin.com/in/adammillerrr",
 
   /** Home page <title>. */
-  homeTitle: "Adam Miller — Staff Software Engineer",
+  homeTitle: "Adam Miller — Staff Software Engineer, Full-Stack & Platform",
   homeDescription:
     "Adam Miller is a staff-level software engineer in Pittsburgh who builds the platforms other engineers build on: CLIs, codemods, CI/CD, services and agent tooling for 1,000+ engineers at Netflix.",
 
@@ -25,11 +25,11 @@ export const SITE = {
 
   /** Home page intro paragraph. */
   intro:
-    "I build the platforms other engineers build on. For nearly 20 years I've worked across the stack, from data models and Node.js services to CLIs, CI/CD and the web front end. Most recently at Netflix's JS Platform org, which serves 1,000+ engineers and 900+ JavaScript applications, I built the codemod tooling that moves the whole fleet across breaking changes, scoped a CI/CD overhaul for the busiest monorepo, and led the platform's shift to agentic development. I'm looking for a Staff or Principal engineering role on a platform, developer-productivity or AI-tooling team.",
+    "I build the platforms other engineers build on. For nearly 20 years I've worked across the stack, from data models and Node.js services to CLIs, CI/CD and the web front end. Most recently at Netflix's JS Platform org, which serves 1,000+ engineers and 900+ JavaScript applications, I built the codemod tooling that moves the whole fleet across breaking changes, scoped a CI/CD overhaul for the busiest monorepo, and led the platform's shift to agentic development. I'm looking for a Staff or Principal engineering role where I can make the engineers around me faster — platform, developer productivity, AI tooling or product engineering.",
 
   /** "Get in touch" closer on the home page. */
   closer:
-    "I'm looking for a Staff or Principal engineering role on a platform, developer-productivity or AI-tooling team. Remote from Pittsburgh, or in a Pittsburgh office.",
+    "I'm looking for a Staff or Principal engineering role where I can make the engineers around me faster — platform, developer productivity, AI tooling or product engineering. Remote from Pittsburgh, or in a Pittsburgh office.",
 
   /** JSON-LD `knowsAbout`. */
   knowsAbout: [
