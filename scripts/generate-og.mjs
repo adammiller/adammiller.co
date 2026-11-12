@@ -8,14 +8,22 @@
  */
 import puppeteer from "puppeteer";
 import path from "node:path";
+import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { serveDir } from "./lib/static-server.mjs";
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const output = path.join(root, "public/og.png");
 
+const executablePath = await puppeteer.executablePath().catch(() => null);
+if (!executablePath || !existsSync(executablePath)) {
+  throw new Error(
+    "No Chromium found for puppeteer. Run `npx puppeteer browsers install chrome` first."
+  );
+}
+
 const server = await serveDir(root);
-const browser = await puppeteer.launch();
+const browser = await puppeteer.launch({ executablePath, timeout: 30_000 });
 
 try {
   const page = await browser.newPage();
