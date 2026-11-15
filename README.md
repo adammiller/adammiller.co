@@ -80,15 +80,19 @@ scripts/
 public/
   favicon.svg
   apple-touch-icon.png
-  headshot_sq.jpg            header avatar
+  headshot_sq.webp           header avatar (144px, 2.8 KB)
   og.png                     Open Graph / Twitter card image
   adam-miller-resume.pdf     committed resume PDF
 ```
 
 ## Design notes
 
-- Self-hosted Newsreader (display) and Inter (text) via Fontsource; no external
-  font requests at runtime.
+- Self-hosted Hanken Grotesk (variable, 100–900) via Fontsource, preloaded; no
+  external font requests at runtime.
+- The visual language is a paper canvas with a faint dot grid, forest-green ink
+  and a single orange accent. Tokens, components and both palettes live in
+  `src/styles/global.css`; dark mode follows the OS and can be overridden with
+  the header toggle (persisted in `localStorage`).
 - All page metadata lives in `src/layouts/BaseLayout.astro`, with per-page
   title, description and Person JSON-LD passed in by each page.
 - The resume uses one `h1`, `section`/`h2` blocks, an `article` per role, real

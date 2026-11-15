@@ -7,55 +7,59 @@ import { formatMonth } from "../utils/dates";
 
 const description = SITE.homeDescription;
 const jsonLd = personJsonLd(description);
-
-const experience = resume.experience.flatMap((employer) =>
-  employer.roles.map((role) => ({
-    company: employer.company,
-    role: role.title,
-    start: role.start ?? employer.start,
-    end: role.end ?? employer.end,
-    note: role.homeSummary,
-  }))
-);
 ---
 
 <BaseLayout title={SITE.homeTitle} description={description} jsonLd={jsonLd}>
   <section class="hero" aria-labelledby="intro-heading">
     <div class="container">
-      <div class="hero-main">
+      <div class="hero-inner">
         <p class="eyebrow">
           <span class="status-dot" aria-hidden="true"></span>
-          Pittsburgh, PA · Remote
+          {SITE.locationLine}
         </p>
-        <h1 id="intro-heading">Adam Miller<span class="accent" aria-hidden="true">.</span></h1>
-        <p class="hero-title">{SITE.headline}</p>
-        <p class="hero-intro">{SITE.intro}</p>
+        <h1 id="intro-heading">
+          Adam <span class="scribble">Miller<svg
+              viewBox="0 0 300 12"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path d="M2 7 C 50 3, 110 9, 170 6 S 260 3, 298 6" stroke-width="2.6"></path>
+              <path d="M6 9 C 70 6, 140 10, 200 8 S 270 6, 294 8" stroke-width="1.2" opacity=".55"></path>
+            </svg></span>
+        </h1>
+        <p class="hero-headline">{SITE.headline}</p>
+        <p class="lede">{SITE.intro}</p>
         <div class="hero-actions">
-          <a class="button button--primary" href="/resume">
-            View resume <span aria-hidden="true">→</span>
-          </a>
-          <a class="button button--ghost" href={mailto}>Email</a>
-          <a
-            class="text-link"
-            href={SITE.linkedin}
-            rel="me"
-          >LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="button button--primary" href="#work">See selected work</a>
+          <a class="button button--secondary" href={mailto}>Get in touch</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="work-heading">
+  <section class="section" id="work" aria-labelledby="work-heading">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title" id="work-heading">Selected work</h2>
+        <div class="section-title">
+          <svg class="marker" viewBox="0 0 8 32" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M4 1.5 C 2.6 8, 5 13, 3.4 19 S 4.6 27, 3.8 30.5"></path>
+          </svg>
+          <h2 id="work-heading">Selected work</h2>
+        </div>
       </div>
       <ul class="work-grid">
         {selectedWork.map((item) => (
-          <li class="work-card">
-            <h3 class="work-title">{item.title}</h3>
-            <p class="work-tag">{item.tag}</p>
-            <p class="work-body">{item.body}</p>
+          <li>
+            <article class="card work-card">
+              <div class="work-card-head">
+                <h3>{item.title}</h3>
+                <span class="chip chip--green">
+                  <span class="chip__dot" aria-hidden="true"></span>
+                  {item.tag}
+                </span>
+              </div>
+              <p>{item.body}</p>
+            </article>
           </li>
         ))}
       </ul>
@@ -65,37 +69,53 @@ const experience = resume.experience.flatMap((employer) =>
   <section class="section" aria-labelledby="experience-heading">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title" id="experience-heading">Selected experience</h2>
+        <h2 id="experience-heading">Selected experience</h2>
         <a class="text-link" href="/resume">Full resume <span aria-hidden="true">→</span></a>
       </div>
-      <ul class="index-list">
-        {experience.map((item) => (
-          <li class="index-item">
-            <span class="index-company">{item.company}</span>
-            <span class="index-role">{item.role}</span>
-            <span class="index-date">
-              <time datetime={item.start}>{formatMonth(item.start, "short")}</time> – <time datetime={item.end}>{formatMonth(item.end, "short")}</time>
-            </span>
-            <p class="index-note">{item.note}</p>
+      <ul class="experience-list">
+        {resume.experience.map((employer) => (
+          <li class="experience-employer">
+            <div class="experience-head">
+              <h3>{employer.company}</h3>
+              <p class="date-range">
+                <time datetime={employer.start}>{formatMonth(employer.start, "short")}</time> – <time datetime={employer.end}>{formatMonth(employer.end, "short")}</time>
+              </p>
+            </div>
+            <ul class="role-list">
+              {employer.roles.map((role) => (
+                <li>
+                  <div class="role-head">
+                    <h4>{role.title}</h4>
+                    {role.start && role.end && (
+                      <p class="date-range">
+                        <time datetime={role.start}>{formatMonth(role.start, "short")}</time> – <time datetime={role.end}>{formatMonth(role.end, "short")}</time>
+                      </p>
+                    )}
+                  </div>
+                  <p class="role-note">{role.homeSummary}</p>
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
     </div>
   </section>
 
-  <section class="contact-band" aria-labelledby="contact-heading">
-    <div class="container contact-inner">
-      <div>
-        <h2 id="contact-heading">Get in touch</h2>
-        <p class="contact-copy">{SITE.closer}</p>
-      </div>
-      <div class="contact-links">
-        <a class="button button--primary" href={mailto}>
-          Email <span class="visually-hidden">Adam Miller</span>
-        </a>
-        <a class="button button--ghost" href={SITE.linkedin} rel="me">
-          LinkedIn <span aria-hidden="true">↗</span>
-        </a>
+  <section class="section" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="card contact-card">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-heading">Get in touch</h2>
+          <p class="lede">{SITE.closer}</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button--primary" href={mailto}>{SITE.email}</a>
+          <a class="button button--secondary" href={SITE.linkedin} rel="me">
+            LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
