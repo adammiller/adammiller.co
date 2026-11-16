@@ -12,8 +12,7 @@
     "resume:pdf": "astro build && node scripts/generate-pdf.mjs --public"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "^5.3.0",
-    "@fontsource-variable/newsreader": "^5.3.0",
+    "@fontsource-variable/hanken-grotesk": "^5.3.0",
     "astro": "^7.4.1"
   },
   "devDependencies": {
