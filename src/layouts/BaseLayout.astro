@@ -158,30 +158,6 @@ const year = new Date().getFullYear();
 
     <script>
       (() => {
-        const header = document.querySelector(".site-header");
-        if (!header) return;
-
-        let ticking = false;
-        const sync = () => {
-          header.classList.toggle("is-scrolled", window.scrollY > 6);
-          ticking = false;
-        };
-
-        window.addEventListener(
-          "scroll",
-          () => {
-            if (ticking) return;
-            ticking = true;
-            window.requestAnimationFrame(sync);
-          },
-          { passive: true }
-        );
-        sync();
-      })();
-    </script>
-
-    <script>
-      (() => {
         const root = document.documentElement;
         const button = document.querySelector("[data-theme-toggle]");
         if (!button) return;

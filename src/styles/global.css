@@ -258,15 +258,7 @@ a:hover {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--line);
-  background: var(--white);
-  backdrop-filter: blur(0);
-  transition:
-    background-color 0.2s var(--ease),
-    backdrop-filter 0.2s var(--ease);
-}
-
-.site-header.is-scrolled {
-  background: color-mix(in srgb, var(--white) 70%, transparent);
+  background: color-mix(in srgb, var(--white) 50%, transparent);
   backdrop-filter: blur(12px);
 }
 
