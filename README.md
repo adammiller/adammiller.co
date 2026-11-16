@@ -91,8 +91,8 @@ public/
   external font requests at runtime.
 - The visual language is a paper canvas with a faint dot grid, forest-green ink
   and a single orange accent. Tokens, components and both palettes live in
-  `src/styles/global.css`; dark mode follows the OS and can be overridden with
-  the header toggle (persisted in `localStorage`).
+  `src/styles/global.css`; dark mode follows the OS `prefers-color-scheme`
+  setting.
 - All page metadata lives in `src/layouts/BaseLayout.astro`, with per-page
   title, description and Person JSON-LD passed in by each page.
 - The resume uses one `h1`, `section`/`h2` blocks, an `article` per role, real

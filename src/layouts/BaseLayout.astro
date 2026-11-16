@@ -22,19 +22,10 @@ const year = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script is:inline>
-      document.documentElement.classList.remove("no-js");
-      try {
-        var theme = localStorage.getItem("theme");
-        if (theme === "light" || theme === "dark") {
-          document.documentElement.setAttribute("data-theme", theme);
-        }
-      } catch (error) {}
-    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
@@ -77,7 +68,7 @@ const year = new Date().getFullYear();
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/" aria-label="Adam Miller, home">
+        <a class="brand" href="/" aria-label="Adam Miller, home" aria-current={isHome ? "page" : undefined}>
           <img
             class="brand-mark"
             src="/headshot_sq.webp"
@@ -88,56 +79,18 @@ const year = new Date().getFullYear();
           />
           <span class="brand-name">Adam Miller</span>
         </a>
-        <div class="header-actions">
-          <nav aria-label="Primary">
-            <ul class="nav-list">
-              <li>
-                <a class="nav-link" href="/" aria-current={isHome ? "page" : undefined}>Home</a>
-              </li>
-              <li>
-                <a class="nav-link" href="/resume" aria-current={isResume ? "page" : undefined}>Resume</a>
-              </li>
-              <li>
-                <a class="nav-link nav-link--pill" href={SITE.linkedin} rel="me">
-                  LinkedIn <span aria-hidden="true">↗</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <button
-            class="theme-toggle"
-            type="button"
-            data-theme-toggle
-            aria-label="Switch to dark theme"
-            title="Switch theme"
-          >
-            <svg
-              class="icon-moon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
-            </svg>
-            <svg
-              class="icon-sun"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-            </svg>
-          </button>
-        </div>
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="/resume" aria-current={isResume ? "page" : undefined}>Resume</a>
+            </li>
+            <li>
+              <a class="nav-link nav-link--pill" href={SITE.linkedin} rel="me">
+                LinkedIn <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
@@ -156,35 +109,5 @@ const year = new Date().getFullYear();
       </div>
     </footer>
 
-    <script>
-      (() => {
-        const root = document.documentElement;
-        const button = document.querySelector("[data-theme-toggle]");
-        if (!button) return;
-
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const current = () => root.dataset.theme || (media.matches ? "dark" : "light");
-
-        const sync = () => {
-          const dark = current() === "dark";
-          button.setAttribute(
-            "aria-label",
-            dark ? "Switch to light theme" : "Switch to dark theme"
-          );
-        };
-
-        button.addEventListener("click", () => {
-          const next = current() === "dark" ? "light" : "dark";
-          root.dataset.theme = next;
-          try {
-            localStorage.setItem("theme", next);
-          } catch (error) {}
-          sync();
-        });
-
-        media.addEventListener("change", sync);
-        sync();
-      })();
-    </script>
   </body>
 </html>
